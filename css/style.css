@@ -1,4 +1,95 @@
-.media-grid {
+/* General */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+    color: #f0f0f0;
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+  /* Header */
+  .main-header {
+    padding: 3rem 1rem;
+    background-color: #0d0d0d;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+  }
+  
+  .main-header h1 {
+    font-size: 2.5rem;
+    color: #e62429;
+    margin-bottom: 0.5rem;
+  }
+  
+  .main-header p {
+    font-size: 1.1rem;
+    color: #ccc;
+  }
+  
+  /* Banner Image */
+  .banner {
+    width: 90%;
+    max-width: 700px;
+    margin: 2rem auto;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+  }
+  
+  .banner:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Navigation Buttons */
+  .main-nav {
+    margin-top: 2rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 1rem 2rem;
+    background: #e62429;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(230, 36, 41, 0.4);
+    transition: background 0.3s ease, transform 0.2s;
+  }
+  
+  .btn:hover {
+    background: #b51b1f;
+    transform: translateY(-2px);
+  }
+  
+  /* Section Intro */
+  .intro {
+    padding: 2rem;
+    background-color: #121212;
+    margin: 2rem auto;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+  
+  .intro h2 {
+    color: #e62429;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Footer */
+  .footer {
+    background: #0d0d0d;
+    padding: 1rem;
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+  }
+  
+  /* Media Cards (para cine.html) */
+  .media-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -7,29 +98,34 @@
   }
   
   .media-card {
-    width: 250px;
+    width: 260px;
     background-color: #1a1a1a;
     border-radius: 10px;
     padding: 1rem;
-    box-shadow: 0 0 10px rgba(230, 36, 41, 0.4);
+    box-shadow: 0 0 15px rgba(230, 36, 41, 0.3);
     text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .media-card:hover {
+    transform: scale(1.05);
   }
   
   .media-card img {
     width: 100%;
     height: auto;
-    border-radius: 6px;
+    border-radius: 8px;
     margin-bottom: 0.5rem;
   }
   
   .media-card h2 {
     font-size: 1.2rem;
-    margin-bottom: 0.3rem;
     color: #e62429;
+    margin-bottom: 0.3rem;
   }
   
   .media-card p {
     font-size: 0.9rem;
-    color: #ddd;
+    color: #ccc;
   }
   
