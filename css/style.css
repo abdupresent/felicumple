@@ -1,3 +1,57 @@
+/*Pantalla inicial*/
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #00FF00; /* Verde fluorescente típico de terminal */
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+  }
+  
+  .splash-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .splash-screen p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+  }
+  
+  .splash-screen pre {
+    font-size: 1.1rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  #progress-bar {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    letter-spacing: 1px;
+    height: 30px; /* Altura de la barra */
+    width: 0; /* Inicialmente la barra tiene 0% de ancho */
+    background-color: #00FF00; /* Color de la barra */
+    transition: width 1s ease-out; /* Transición suave para el ancho */
+  }
+  
+  #progress-text {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
 /* General */
 body {
     margin: 0;
