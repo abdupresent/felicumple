@@ -1,0 +1,147 @@
+/*Pantalla inicial*/
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #00FF00; /* Verde fluorescente típico de terminal */
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+  }
+  
+  .splash-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .splash-screen p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+  }
+  
+  .splash-screen pre {
+    font-size: 1.1rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  #progress-bar {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    letter-spacing: 1px;
+    height: 30px; /* Altura de la barra */
+    width: 0; /* Inicialmente la barra tiene 0% de ancho */
+    background-color: #00FF00; /* Color de la barra */
+    transition: width 1s ease-out; /* Transición suave para el ancho */
+  }
+  
+  #progress-text {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+/* General */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+    color: #f0f0f0;
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+  /* Header */
+  .main-header {
+    padding: 3rem 1rem;
+    background-color: #0d0d0d;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+  }
+  
+  .main-header h1 {
+    font-size: 2.5rem;
+    color: #e62429;
+    margin-bottom: 0.5rem;
+  }
+  
+  .main-header p {
+    font-size: 1.1rem;
+    color: #ccc;
+  }
+  
+  /* Banner Image */
+  .banner {
+    width: 90%;
+    max-width: 700px;
+    margin: 2rem auto;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+  }
+  
+  .banner:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Navigation Buttons */
+  .main-nav {
+    margin-top: 2rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 1rem 2rem;
+    background: #e62429;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(230, 36, 41, 0.4);
+    transition: background 0.3s ease, transform 0.2s;
+  }
+  
+  .btn:hover {
+    background: #b51b1f;
+    transform: translateY(-2px);
+  }
+
+
+  /* Section Intro */
+  .intro {
+    padding: 2rem;
+    background-color: #121212;
+    margin: 2rem auto;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+  
+  .intro h2 {
+    color: #e62429;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Footer */
+  .footer {
+    background: #0d0d0d;
+    padding: 1rem;
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+  }
+  
+  
+  

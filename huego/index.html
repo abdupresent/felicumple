@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MataSombi o BiryaniDie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Press Start 2P', cursive;
+      background: url('city-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    #game-container {
+      position: relative;
+      width: 1000px;
+      height: 800px;
+      border: 2px solid #0f0;
+      background-color: rgba(0, 0, 0, 0.6);
+      box-sizing: border-box;
+    }
+    canvas {
+      display: block;
+      background-color: transparent;
+      width: 700px;
+      height: 500px;
+    }
+    #zombie-counter {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #0f0;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 20px;
+      user-select: none;
+      pointer-events: none;
+      z-index: 10;
+      text-shadow: 0 0 5px #0f0;
+    }
+    #message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.85);
+      padding: 20px 40px;
+      border: 5px dashed #0f0;
+      color: #0f0;
+      display: none;
+      z-index: 20;
+      text-align: center;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+    #biryani {
+      margin-top: 10px;
+      width: 100px;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <div id="zombie-counter">Zombis eliminados: 0</div>
+    <canvas id="game"></canvas>
+    <div id="message"></div>
+  </div>
+  <img id="biryani" src="biryani.png" alt="Biryani" />
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const zombieCounter = document.getElementById("zombie-counter");
+    const message = document.getElementById("message");
+
+    canvas.width = 700;
+    canvas.height = 500;
+
+    const heroImg = new Image();
+    heroImg.src = "hero.png";
+    const zombieImg = new Image();
+    zombieImg.src = "zombie.png";
+
+    const hero = { x: canvas.width / 4 - 50, y: canvas.height - 160, width: 150, height: 100, speed: 6 };
+    const bullets = [];
+    const zombies = [];
+    let keys = {};
+    let score = 0;
+    let gameOver = false;
+
+    function spawnZombie() {
+      if (zombies.length < 3) {
+        const x = Math.random() * (canvas.width - 50);
+        zombies.push({ x, y: 0, width: 100, height: 100, speed: 0.5 + Math.random() * 0.7 });
+      }
+    }
+
+    function drawHero() {
+      ctx.drawImage(heroImg, hero.x, hero.y, hero.width, hero.height);
+    }
+
+    function drawZombies() {
+      zombies.forEach(z => {
+        ctx.drawImage(zombieImg, z.x, z.y, z.width, z.height);
+      });
+    }
+
+    function drawBullets() {
+      ctx.fillStyle = "#ff0";
+      bullets.forEach(b => ctx.fillRect(b.x, b.y, b.width, b.height));
+    }
+
+    function update() {
+      if (gameOver) return;
+
+      if (keys["ArrowLeft"] && hero.x > 0) hero.x -= hero.speed;
+      if (keys["ArrowRight"] && hero.x < canvas.width - hero.width) hero.x += hero.speed;
+
+      bullets.forEach(b => b.y -= 8);
+
+      zombies.forEach(z => z.y += z.speed);
+
+      bullets.forEach((b, bi) => {
+        zombies.forEach((z, zi) => {
+          if (b.x < z.x + z.width && b.x + b.width > z.x && b.y < z.y + z.height && b.y + b.height > z.y) {
+            bullets.splice(bi, 1);
+            zombies.splice(zi, 1);
+            score++;
+            zombieCounter.textContent = `Zombis eliminados: ${score}`;
+            if (score >= 23) endGame(true);
+          }
+        });
+      });
+
+      zombies.forEach(z => {
+        if (z.y + z.height >= hero.y && z.x + z.width > hero.x && z.x < hero.x + hero.width) {
+          endGame(false);
+        }
+      });
+
+      // Limpiar balas que salieron del canvas
+      for (let i = bullets.length - 1; i >= 0; i--) {
+        if (bullets[i].y + bullets[i].height < 0) bullets.splice(i, 1);
+      }
+    }
+
+    function draw() {
+      if (gameOver) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawHero();
+      drawBullets();
+      drawZombies();
+    }
+
+    function gameLoop() {
+      update();
+      draw();
+      if (!gameOver) requestAnimationFrame(gameLoop);
+    }
+
+    function endGame(won) {
+      gameOver = true;
+      message.innerHTML = won
+        ? `🎉 <strong>¡Feli cumpleaño!</strong><br>¡Eres prohacker has matado todo lo sombi! 🍛🦸‍♂️`
+        : `☠️ <strong>¡NOOOOOOOOOO CAGASTE!</strong><br>Se comieron tu biryani por lento... 😱`;
+      message.style.display = "block";
+    }
+
+    setInterval(() => {
+      if (!gameOver) spawnZombie();
+    }, 1600);
+
+    gameLoop();
+
+    window.addEventListener("keydown", e => {
+      keys[e.key] = true;
+      if (e.key === " ") {
+        bullets.push({ x: hero.x + hero.width / 2 - 2, y: hero.y, width: 4, height: 10 });
+      }
+    });
+
+    window.addEventListener("keyup", e => {
+      keys[e.key] = false;
+    });
+  </script>
+</body>
+</html>

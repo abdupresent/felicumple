@@ -24,4 +24,42 @@ window.onload = function() {
     // Iniciar la actualización de la barra de progreso
     updateProgress();
   };
+
+// Datos de las imágenes del carrusel
+const images = [
+    'images/My Name Is Khan (2010) Cine Bollywood.jpg',
+    'images/snowfall.jpg',
+    'images/wildflower.jpg'
+  ];
+  
+  let currentIndex = 0;
+  
+  // Obtener los elementos del DOM
+  const carouselImages = document.querySelectorAll('.carousel-image');
+  
+  // Función para actualizar el carrusel y mostrar solo una imagen
+  const updateCarousel = () => {
+    // Ocultar todas las imágenes
+    carouselImages.forEach((img) => {
+      img.style.display = 'none';  // Ocultar todas las imágenes
+    });
+  
+    // Mostrar solo la imagen actual
+    carouselImages[currentIndex].style.display = 'block'; // Mostrar la imagen actual
+  };
+  
+  // Botón para ir a la imagen anterior
+  document.getElementById('prev-btn').addEventListener('click', () => {
+    currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+    updateCarousel();
+  });
+  
+  // Botón para ir a la imagen siguiente
+  document.getElementById('next-btn').addEventListener('click', () => {
+    currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+    updateCarousel();
+  });
+  
+  // Inicializamos el carrusel con la primera imagen visible
+  updateCarousel();
   

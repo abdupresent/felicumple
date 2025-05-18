@@ -1,0 +1,102 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #121212;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #ff6347; /* Color de texto para el título */
+  font-size: 2.5em;
+  margin-top: 50px;
+}
+
+#image-carousel {
+  margin: 30px auto;
+  width: 80%; /* Ajusta el ancho del carrusel */
+  max-width: 800px; /* Máximo tamaño del carrusel */
+  overflow: hidden; /* Oculta las imágenes que no están en la vista */
+  border: 2px solid #ff6347; /* Agrega un borde opcional para mejorar la apariencia */
+}
+
+#carousel-images-container {
+  position: relative;
+  display: flex; /* Alinea las imágenes en una fila */
+}
+
+.carousel-image {
+  width: 100%; /* Hace que la imagen ocupe el 100% del ancho del contenedor */
+  height: auto; /* Mantiene la relación de aspecto */
+  display: none; /* Inicialmente ocultamos todas las imágenes */
+  object-fit: contain; /* Ajusta las imágenes al contenedor sin cortarlas */
+}
+
+/* Estilo para los botones de navegación */
+#carousel-controls {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #ff6347; /* Color de fondo para los botones */
+  color: white; /* Texto blanco en los botones */
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff4500; /* Color cuando el botón es presionado */
+}
+
+/* Estilo del pie de página */
+.footer {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #222; /* Fondo oscuro para el pie de página */
+  color: white;
+  font-size: 0.9em;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em; /* Ajusta el tamaño de fuente del título en pantallas más pequeñas */
+  }
+
+  .carousel-image {
+    width: 100%; /* Ajusta el ancho de las imágenes en pantallas pequeñas */
+  }
+
+  button {
+    font-size: 1em; /* Ajusta el tamaño de los botones */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em; /* Reduce aún más el tamaño del título */
+  }
+
+  .carousel-image {
+    width: 100%; /* Las imágenes ocupan el 100% del ancho en pantallas muy pequeñas */
+  }
+
+  button {
+    font-size: 0.9em; /* Ajuste del tamaño de los botones */
+  }
+}
