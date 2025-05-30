@@ -183,8 +183,8 @@ function resetGame() {
     <p>
       Dificultad:
       <select id="difficulty">
-        <option value="easy">Fácil</option>
-        <option value="medium" selected>Media</option>
+        <option value="easy" selected>Fácil</option>
+        <option value="medium">Media</option>
         <option value="hard">Difícil</option>
         <option value="hardcore">MUY Difícil</option>
       </select>
