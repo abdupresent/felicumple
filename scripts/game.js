@@ -153,6 +153,11 @@ function startGame() {
       spawnRate = 600;
       maxZombies = 9;
       break;
+    case "muyhardcore":
+      zombieSpeedRange = [2.0, 5.0];
+      spawnRate = 400;
+      maxZombies = 25;
+      break;
   }
 
   message.style.display = "none";
