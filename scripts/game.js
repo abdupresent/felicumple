@@ -154,7 +154,7 @@ function startGame() {
       maxZombies = 9;
       break;
     case "muyhardcore":
-      zombieSpeedRange = [2.0, 5.0];
+      zombieSpeedRange = [2.0, 5.5];
       spawnRate = 400;
       maxZombies = 25;
       break;
@@ -192,6 +192,7 @@ function resetGame() {
         <option value="medium">Media</option>
         <option value="hard">Difícil</option>
         <option value="hardcore">MUY Difícil</option>
+        <option value="muyhardcore">HARDCORE</option>
       </select>
     </p>
     <button onclick="startGame()">Comenzar juego</button>
