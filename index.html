@@ -1,0 +1,55 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MataSombi o BiryaniDie</title>
+  <link rel="shortcut icon" href="images/D_NQ_NP_704500-MLA50147123316_052022-O.webp" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+
+<body>
+  <div id="splash-screen" class="splash-screen">
+    <h1>Jakiando Nudes</h1>
+    <p>Localizando IP... por favor espere.</p>
+    <p id="progress-text">0%</p>
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
+    <p id="access-message" class="access-message">
+      ✅ Acceso concedido
+    </p>
+  </div>
+
+  <div id="game-container">
+    <div id="zombie-counter">Zombis eliminados: 0</div>
+    <canvas id="game" width="1000" height="800"></canvas>
+    <div id="message">
+      <h2>🦟 MataSombi o BiryaniDie 🍛</h2>
+      <p>
+        💥 Muévete con ← →<br>
+        🔫 Dispara con la barra espaciadora<br><br>
+        🎯 Elimina 23 zombis para ganar<br>
+        ❌ Si un zombi entra en la zona del biryani... ¡Pierdes PUTO!
+      </p>
+      <p>
+        Dificultad:
+        <select id="difficulty">
+          <option value="easy">Fácil</option>
+          <option value="medium" selected>Media</option>
+          <option value="hard">Difícil</option>
+          <option value="hardcore">MUY Difícil</option>
+        </select>
+      </p>
+      <button onclick="startGame()">Comenzar juego</button>
+    </div>
+  </div>
+
+  <script src="./scripts/splash.js"></script>
+  <script src="./scripts/game.js"></script>
+</body>
+
+</html>

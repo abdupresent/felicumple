@@ -1,0 +1,150 @@
+/* styles.css */
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: url('../images/city-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  color: #00FF00;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.splash-screen h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.splash-screen p {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+#progress-bar-container {
+  width: 80%;
+  background-color: #111;
+  border: 1px solid #00FF00;
+  height: 30px;
+  margin-top: 10px;
+  position: relative;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0;
+  background-color: #00FF00;
+  transition: width 0.2s linear;
+}
+
+#progress-text {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.access-message {
+  display: none;
+  font-weight: bold;
+  color: #00ff00;
+  font-size: 1.5rem;
+  margin-top: 15px;
+}
+
+#game-container {
+  position: relative;
+  width: 1000px;
+  height: 800px;
+  border: 2px solid #0f0;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1000px;
+  height: 800px;
+}
+
+#zombie-counter {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #0f0;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+  z-index: 2;
+}
+
+#message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.85);
+  padding: 20px 40px;
+  border: 5px dashed #0f0;
+  color: #0f0;
+  display: block;
+  z-index: 3;
+  text-align: center;
+  font-size: 18px;
+}
+
+#message button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  background-color: #0f0;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+#difficulty {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  background-color: black;
+  color: #0f0;
+  border: 2px solid #0f0;
+  padding: 5px 10px;
+  cursor: pointer;
+  appearance: none;
+}
+
+#difficulty:focus {
+  outline: none;
+  box-shadow: 0 0 5px #0f0;
+}
+
+#biryani {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  z-index: 2;
+}
