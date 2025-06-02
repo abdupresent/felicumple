@@ -82,7 +82,7 @@ function update() {
         zombies.splice(zi, 1);
         score++;
         zombieCounter.textContent = `Zombis eliminados: ${score}`;
-        if (score >= 23) endGame(true);
+        if (score >= 69) endGame(true);
       }
     });
   });
@@ -183,7 +183,7 @@ function resetGame() {
     <h2>🧟 MataSombi o BiryaniDie 🍛</h2>
     <p>💥 Muévete con ← →<br>
     🔫 Dispara con la barra espaciadora<br><br>
-    🎯 Elimina 23 zombis para ganar<br>
+    🎯 Elimina 69 zombis para ganar<br>
     ❌ Si un zombi entra en la zona del biryani... ¡Pierdes PUTO!</p>
     <p>
       Dificultad:
